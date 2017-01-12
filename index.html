@@ -11,7 +11,37 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<p>Hello World!</p>
+		<div id="actors">
+			<form data-bind="submit: addActor" >
+			<label for="actorName">Name:</label>
+			<input name="actorName" type="text" data-bind="value: formActor().name"></input><br>
+			<label for="actorInit">Init:</label>
+			<input name="actorInit" type="number" pattern="[0-9]{1,3}" title="Numbers between 0-999 only please." data-bind="value: formActor().init"></input><br>
+			<label for="actorHP">HP:</label>
+			<input name="actorHP" type="number" pattern="[0-9]*" title="Health must be numeric, silly." data-bind="value: formActor().hp"></input><br>
+			<button id="btnCreate">Create!</button>
+			</form>
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Initiative</th>
+						<th>Health</th>
+						<th>Turn</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: actors">
+					<tr>
+						<td data-bind="text: name"></td>
+						<td data-bind="text: init"></td>
+						<td data-bind="text: hp"></td>
+						<td><button data-bind="click: $parent.endTurn, visible: hp>0">End Turn</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<button data-bind="click: sortActors">Sort</button>
+		</div>
+		
 		<script src="knockout.js" type="text/javascript"></script>
 		<script src="app.js" type="text/javascript"></script>
 	</body>
