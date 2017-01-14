@@ -33,8 +33,8 @@
 				<tbody data-bind="foreach: actors">
 					<tr>
 						<td data-bind="text: name"></td>
-						<td data-bind="text: init"></td>
-						<td data-bind="text: hp"></td>
+						<td><input class="number" size="3" type="number" data-bind="value: init"></td>
+						<td><input class="number" size="3" type="number" data-bind="value: hp"></td>
 						<td><button data-bind="click: $parent.endTurn, visible: hp>0">End Turn</button></td>
 					</tr>
 				</tbody>

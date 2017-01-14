@@ -5,14 +5,7 @@ function Actor(other) {
 	this.hp = other.hp || 0;
 };
 var sort = function(left, right) {
-	if(left.hp==0) {
-		if(right.hp==0) return 0;
-		return 1;
-	} else if(right.hp == 0) {
-		return 1;
-	} else {
-		return left.init==right.init ? 0 : (left.init > right.init ? -1 : 1);
-	}
+	return left.init==right.init ? 0 : (left.init > right.init ? -1 : 1);
 };
 
 function Encounter() {
