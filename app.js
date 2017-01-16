@@ -2,7 +2,7 @@ function Actor(other) {
 	other = other || {};
 	this.name = other.name || "";
 	this.init = other.init || 0;
-	this.hp = other.hp || 0;
+	this.hp = other.hp || 1;
 };
 var sort = function(left, right) {
 	return left.init==right.init ? 0 : (left.init > right.init ? -1 : 1);
