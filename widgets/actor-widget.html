@@ -1,0 +1,14 @@
+<div class="widget">
+	<form data-bind="submit: addActor" >
+		<label for="actorName">Name:</label>
+		<input name="actorName" type="text" data-bind="value: selected().name"></input>
+		<br>
+		<label for="actorInit">Init:</label>
+		<input name="actorInit" type="number" pattern="[0-9]{1,3}" title="Numbers between 0-999 only please." data-bind="value: selected().init"></input>
+		<br>
+		<label for="actorHP">HP:</label>
+		<input name="actorHP" type="number" pattern="[0-9]*" title="Health must be numeric, silly." data-bind="value: selected().hp"></input>
+		<br>
+		<button class="icon-add"></button>
+	</form>
+</div>

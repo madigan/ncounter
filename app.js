@@ -1,32 +1,15 @@
-function Actor(other) {
-	other = other || {};
-	this.name = other.name || "";
-	this.init = other.init || 0;
-	this.hp = other.hp || 0;
-};
-var sort = function(left, right) {
-	return left.init==right.init ? 0 : (left.init > right.init ? -1 : 1);
-};
-
-function Encounter() {
-	this.actors = [];
-};
-
-var ViewModel = function() {
-	self = this;
-	self.formActor = ko.observable(new Actor());
-	self.actors = ko.observableArray([]);
-	self.addActor = function() {
-		self.actors.push(new Actor(self.formActor()));
-		self.formActor(new Actor());
-	};
-	self.sortActors = function() {
-		self.actors.sort(sort);
-	};
-	self.endTurn = function() {
-		self.actors.remove(this);
-		self.actors.push(this);
-	};
-};
-ko.applyBindings(new ViewModel());
-
+require.config({
+    urlArgs: "bust=" + Math.random()
+});
+require(['knockout', 'actor', 'encounter', 'appViewModel'], function(ko, Actor, Encounter, appViewModel) {
+	ko.components.register('actor-widget', {
+		viewModel: { require: 'widgets/actor-widget' },
+		template: { require: 'text!widgets/actor-widget.html' }
+	});
+	ko.components.register('list-widget', {
+		viewModel: { require: 'widgets/list-widget' },
+		template: { require: 'text!widgets/list-widget.html' }
+	});
+	ko.applyBindings(new appViewModel());
+	
+});
