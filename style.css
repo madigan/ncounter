@@ -2,6 +2,23 @@ input[type=number] {
     width: 40px;
 }
 
+.widget {
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 1px solid #303030;
+	background-color: #faf2e1;
+	display: block;
+	min-width: 300px;
+	max-width: 400px;
+	padding: 20px;
+	margin: 20px;
+}
+
+.widget select {
+	width: 100%;
+}
+
 @font-face {
 	font-family: 'Metrize-Icons';
 	src:url('fonts/Metrize-Icons.eot');
@@ -25,7 +42,6 @@ input[type=number] {
 	
 	opacity: 0.5;
 	font-size: 16pt;
-	width: 16pt;
 }
 
 [class*="icon-"]:hover {

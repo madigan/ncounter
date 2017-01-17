@@ -1,7 +1,7 @@
 require.config({
     urlArgs: "bust=" + Math.random()
 });
-require(['knockout', 'actor', 'encounter', 'appViewModel'], function(ko, Actor, Encounter, appViewModel) {
+require(['knockout', 'actor', 'encounter', 'appViewModel'], function(ko, Actor, Encounter, AppViewModel) {
 	ko.components.register('actor-widget', {
 		viewModel: { require: 'widgets/actor-widget' },
 		template: { require: 'text!widgets/actor-widget.html' }
@@ -10,6 +10,6 @@ require(['knockout', 'actor', 'encounter', 'appViewModel'], function(ko, Actor, 
 		viewModel: { require: 'widgets/list-widget' },
 		template: { require: 'text!widgets/list-widget.html' }
 	});
-	ko.applyBindings(new appViewModel());
+	ko.applyBindings(new AppViewModel());
 	
 });

@@ -1,6 +1,7 @@
 define(['knockout', 'actor'], function(ko, Actor) {
 	function ActorWidgetViewModel(params) {
-		this.selected = params.selected || ko.observable(new Actor());
+		this.selected = params.selected || ko.observable();
+		if(this.selected() == null) this.selected(new Actor());
 		this.list = params.list;
 	};
 	

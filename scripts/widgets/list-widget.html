@@ -1,0 +1,18 @@
+<div class="widget">
+	<h1 data-bind="text:title"></h1>
+	<actor-widget params="list: list"></actor-widget>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: list">
+			<tr>
+				<td data-bind="text: name"></td>
+				<td><button class='icon-delete' data-bind="click: $parent.removeItem"></button></td>
+			</tr>
+		</tbody>
+	</table>
+	<button class='icon-sort' data-bind="click: sort"></button>
+</div>
