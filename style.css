@@ -14,9 +14,19 @@ input[type=number] {
 	padding: 20px;
 	margin: 20px;
 }
+.left select {
+	float: left;
+	display: block;
+}
+div.right {
+	width: 32px;
+	display: block;
+}
 
-.widget select {
-	width: 100%;
+.col-2 {
+	display: block;
+	float: left;
+	width: 50%;
 }
 
 @font-face {
@@ -62,4 +72,7 @@ input[type=number] {
 }
 .icon-turn:before {
 	content: "\e0e2";
+}
+.icon-play:before {
+	content: "\e00c";
 }

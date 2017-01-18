@@ -11,7 +11,28 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<list-widget params="title:'Monster Library', list: actorList"></list-widget>
+		<div class="col-2">
+			<encounter-widget params="
+				selected: selectedEncounter, 
+				encounterList: encounters,
+				actorList: actors"></encounter-widget>
+		</div>
+		<div class="col-2">
+			<list-widget params="
+				title:'Encounter Library', 
+				selected: selectedEncounter, 
+				encounterList: encounters, 
+				actorList: actors, 
+				columns: ['Name']"></list-widget>
+			<actor-widget params="
+				selected: selectedActor, 
+				list: actors"></actor-widget>
+			<list-widget params="
+				title:'Monster Library', 
+				selected: selectedActor, 
+				list: actors, 
+				columns: ['Name', 'Init', 'HP']"></list-widget>
+		</div>
 		
 		<script src="scripts/require.js" data-main="scripts/app.js" type="text/javascript"></script>
 	</body>

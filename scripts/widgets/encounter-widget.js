@@ -1,13 +1,26 @@
-
-	self.actors = ko.observableArray([]);
-	self.addActor = function() {
-		self.actors.push(new Actor(self.formActor()));
-		self.formActor(new Actor());
+define(['knockout', 'encounter', 'actor'], function(ko, Encounter, Actor) {
+	function EncounterWidgetViewModel(params) {
+		self = this;
+		self.selected = params.selected || ko.observable(new Encounter());
+		self.encounterList = params.encounterList || ko.observableArray();
+		self.actorList = params.actorList || ko.observableArray();
+		self.selectedActor = ko.observable();
+		
+		self.addActor = function() {
+			if(self.selectedActor() != null) {
+				self.selected().actors.push(new Actor(self.selectedActor()));
+			}
+		};
+		
+		self.sortActors = function() {
+			self.selected().actors.sort(sort);
+		};
+		
+		self.endTurn = function() {
+			self.selected().actors.remove(this);
+			self.selected().actors.push(this);
+		};
 	};
-	self.sortActors = function() {
-		self.actors.sort(sort);
-	};
-	self.endTurn = function() {
-		self.actors.remove(this);
-		self.actors.push(this);
-	};
+	
+	return EncounterWidgetViewModel;
+});

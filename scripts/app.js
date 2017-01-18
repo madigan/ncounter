@@ -10,6 +10,9 @@ require(['knockout', 'actor', 'encounter', 'appViewModel'], function(ko, Actor, 
 		viewModel: { require: 'widgets/list-widget' },
 		template: { require: 'text!widgets/list-widget.html' }
 	});
+	ko.components.register('encounter-widget', {
+		viewModel: { require: 'widgets/encounter-widget' },
+		template: { require: 'text!widgets/encounter-widget.html' }
+	});
 	ko.applyBindings(new AppViewModel());
-	
 });
