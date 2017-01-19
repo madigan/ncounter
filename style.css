@@ -1,18 +1,16 @@
 input[type=number] {
-    width: 40px;
+    width: 3rem;
 }
 
 .widget {
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 0.75rem;
+	-moz-border-radius: 0.75rem;
+	-webkit-border-radius: 0.75rem;
 	border: 1px solid #303030;
 	background-color: #faf2e1;
 	display: block;
-	min-width: 300px;
-	max-width: 400px;
-	padding: 20px;
-	margin: 20px;
+	padding: 1rem;
+	margin: 1rem;
 }
 
 .widget td, th {
@@ -26,10 +24,19 @@ table {
 	border-collapse: collapse;
 }
 
-.col-2 {
-	display: block;
-	float: left;
-	width: 50%;
+@media (max-width: 900px) {
+	.col-2 {
+		display: block;
+		float: left;
+		clear: both;
+		width: 100%;
+	}
+}
+@media (min-width: 900px) {
+	.col-2 {
+		display: block;
+		float: left;
+	}
 }
 
 @font-face {
@@ -54,7 +61,7 @@ table {
 	-webkit-font-smoothing: antialiased;
 	
 	opacity: 0.5;
-	font-size: 16pt;
+	font-size: 1.5rem;
 }
 
 [class*="icon-"]:hover {
