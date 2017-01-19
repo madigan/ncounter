@@ -8,7 +8,12 @@ define(['knockout', 'encounter', 'actor'], function(ko, Encounter, Actor) {
 		
 		self.addActor = function() {
 			if(self.selectedActor() != null) {
-				self.selected().actors.push(new Actor(self.selectedActor()));
+				self.selected().actors.push(
+					new Actor({
+						name: self.selectedActor().name(),
+						init: self.selectedActor().init(),
+						hp: self.selectedActor().hp()
+					}));
 			}
 		};
 		
