@@ -7,7 +7,6 @@ define(['knockout', 'actor'], function(ko, Actor) {
 	
 	ActorWidgetViewModel.prototype.addActor = function() {
 		if(!this.list().includes(this.selected())) {
-			console.log("Added");
 			this.list.push(this.selected());
 		}
 		this.selected(new Actor());

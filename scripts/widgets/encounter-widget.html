@@ -1,34 +1,35 @@
 <div class="widget">
-	<label for="name">Name:</label>
-	<input type="text" data-bind="value: selected().name"></input>
-	<div>
+	<div class="widget"
+		<label for="name">Name:</label>
+		<input type="text" data-bind="value: selectedEncounter().name"></input>
+	</div>
+	<div class="widget">
 		<div class="left">
 			<select data-bind="
 				options: actorList,
 				optionsText: 'name',
 				value: selectedActor,
 				optionsCaption: 'Add a monster...'"></select>
+			<button class="icon-add" title="Add" data-bind="click: addActor"></button>
 		</div>
-		<div class="right">
-			<button class="icon-add" data-bind="click: addActor"></button>
-		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Initiative</th>
+					<th>Health</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: selectedEncounter().actors">
+				<tr>
+					<td data-bind="text: name"></td>
+					<td><input class="number" size="3" type="number" data-bind="value: init"></td>
+					<td><input class="number" size="3" type="number" data-bind="value: hp"></td>
+					<td><button class="icon-turn" title="End Turn" data-bind="click: $parent.endTurn, visible: hp() > 0"></button></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-	<table>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Initiative</th>
-				<th>Health</th>
-			</tr>
-		</thead>
-		<tbody data-bind="foreach: selected().actors">
-			<tr>
-				<td data-bind="text: name"></td>
-				<td><input class="number" size="3" type="number" data-bind="value: init"></td>
-				<td><input class="number" size="3" type="number" data-bind="value: hp"></td>
-				<td><button class="icon-turn" data-bind="click: $parent.endTurn, visible: hp > 0"></button></td>
-			</tr>
-		</tbody>
-	</table>
-	<button class="icon-sort" data-bind="click: sortActors"></button>
+	<button class="icon-sort" title="Sort" data-bind="click: sortActors"></button>
+	<button class="icon-add" title="Add" data-bind="click: saveEncounter"></button>
 </div>

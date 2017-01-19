@@ -13,17 +13,16 @@
 	<body>
 		<div class="col-2">
 			<encounter-widget params="
-				selected: selectedEncounter, 
+				selectedEncounter: selectedEncounter, 
 				encounterList: encounters,
 				actorList: actors"></encounter-widget>
-		</div>
-		<div class="col-2">
 			<list-widget params="
 				title:'Encounter Library', 
 				selected: selectedEncounter, 
-				encounterList: encounters, 
-				actorList: actors, 
+				list: encounters, 
 				columns: ['Name']"></list-widget>
+		</div>
+		<div class="col-2">
 			<actor-widget params="
 				selected: selectedActor, 
 				list: actors"></actor-widget>

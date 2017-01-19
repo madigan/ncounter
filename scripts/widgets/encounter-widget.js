@@ -1,14 +1,17 @@
 define(['knockout', 'encounter', 'actor'], function(ko, Encounter, Actor) {
 	function EncounterWidgetViewModel(params) {
 		self = this;
-		self.selected = params.selected || ko.observable(new Encounter());
+		this.selectedEncounter = params.selectedEncounter || ko.observable();
+		if(this.selectedEncounter() == null) this.selectedEncounter(new Encounter());
 		self.encounterList = params.encounterList || ko.observableArray();
 		self.actorList = params.actorList || ko.observableArray();
 		self.selectedActor = ko.observable();
 		
+		// Add a copy of the selected actor to the encounter
 		self.addActor = function() {
 			if(self.selectedActor() != null) {
-				self.selected().actors.push(
+				// Important: Push a *copy* of the actor.
+				self.selectedEncounter().actors.push(
 					new Actor({
 						name: self.selectedActor().name(),
 						init: self.selectedActor().init(),
@@ -17,13 +20,21 @@ define(['knockout', 'encounter', 'actor'], function(ko, Encounter, Actor) {
 			}
 		};
 		
+		self.saveEncounter = function() {
+			self.encounterList.push(self.selectedEncounter());
+			self.selectedEncounter(new Encounter());
+		};
+		
+		// Sort all the actors by initiative- useful for beginning the encounter.
 		self.sortActors = function() {
-			self.selected().actors.sort(sort);
+			self.selectedEncounter().actors.sort(function(l, r) {
+				return l.init() == r.init() ? 0 : l.init() > r.init() ? -1 : 1;
+			});
 		};
 		
 		self.endTurn = function() {
-			self.selected().actors.remove(this);
-			self.selected().actors.push(this);
+			self.selectedEncounter().actors.remove(this);
+			self.selectedEncounter().actors.push(this);
 		};
 	};
 	
