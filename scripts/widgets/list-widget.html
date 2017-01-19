@@ -11,10 +11,14 @@
 				<!-- ko foreach: { data: $parent.columns, as: 'column' } -->
 				<td data-bind="text: item[column.toLowerCase()]"></td>
 				<!-- /ko -->
-				<td><button class='icon-edit' data-bind="click: $parent.editItem"></button><td>
+				<td><button class='icon-edit' data-bind="click: $parent.editItem"></button></td>
 				<td><button class='icon-delete' data-bind="click: $parent.removeItem"></button></td>
 			</tr>
 		</tbody>
+		<tfoot>
+			<tr>
+				<td><button class='icon-sort' title="Sort" data-bind="click: sort"></button></td>
+			</tr>
+		</tfoot>
 	</table>
-	<button class='icon-sort' title="Sort" data-bind="click: sort"></button>
 </div>

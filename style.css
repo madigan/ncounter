@@ -14,13 +14,16 @@ input[type=number] {
 	padding: 20px;
 	margin: 20px;
 }
-.left select {
-	float: left;
-	display: block;
+
+.widget td, th {
+	padding: 0.5rem;
+	text-align: left;
 }
-div.right {
-	width: 32px;
-	display: block;
+.widget tbody td {
+	border: 1px solid #999;
+}
+table {	
+	border-collapse: collapse;
 }
 
 .col-2 {
