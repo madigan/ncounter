@@ -10,13 +10,14 @@ define(['knockout', 'encounter', 'actor'], function(ko, Encounter, Actor) {
 		// Add a copy of the selected actor to the encounter
 		self.addActor = function() {
 			if(self.selectedActor() != null) {
-				// Important: Push a *copy* of the actor.
-				self.selectedEncounter().actors.push(
-					new Actor({
+				// Important: Push a *copy* of the actor. // TODO: Create copy constructor
+				var copy = new Actor({
 						name: self.selectedActor().name(),
 						init: self.selectedActor().init(),
-						hp: self.selectedActor().hp()
-					}));
+						hp: self.selectedActor().hp(),
+						dice: self.selectedActor().dice()});
+				copy.rollHealth();
+				self.selectedEncounter().actors.push(copy);
 			}
 		};
 		
@@ -35,6 +36,9 @@ define(['knockout', 'encounter', 'actor'], function(ko, Encounter, Actor) {
 		self.endTurn = function() {
 			self.selectedEncounter().actors.remove(this);
 			self.selectedEncounter().actors.push(this);
+		};
+		self.removeActor = function() {
+			self.selectedEncounter().actors.remove(this);
 		};
 	};
 	

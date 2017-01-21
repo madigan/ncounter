@@ -1,5 +1,8 @@
 <div class="widget">
-	<h1 data-bind="text:title"></h1>
+	<h1>
+		<span data-bind="text:title"></span>
+		<span class="icon-help" title="This widget shows a library of things which you've created. It will persist between browser sessions, and it's saved locally."></span>
+	</h1>
 	<table>
 		<thead>
 			<tr data-bind="foreach: columns">
@@ -11,8 +14,8 @@
 				<!-- ko foreach: { data: $parent.columns, as: 'column' } -->
 				<td data-bind="text: item[column.toLowerCase()]"></td>
 				<!-- /ko -->
-				<td><button class='icon-edit' data-bind="click: $parent.editItem"></button></td>
-				<td><button class='icon-delete' data-bind="click: $parent.removeItem"></button></td>
+				<td><button class='icon-edit' title="Edit" data-bind="click: $parent.editItem"></button></td>
+				<td><button class='icon-delete' title="Delete" data-bind="click: $parent.removeItem"></button></td>
 			</tr>
 		</tbody>
 		<tfoot>

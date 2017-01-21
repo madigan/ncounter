@@ -1,4 +1,8 @@
 <div class="widget">
+	<h1>
+		<span>Encounter Widget</span>
+		<span class="icon-help" title="This widget lets you create, modify, and run encounters."></span>
+	</h1>
 	<div class="widget"
 		<label for="name">Name:</label>
 		<input type="text" data-bind="value: selectedEncounter().name"></input>
@@ -25,6 +29,7 @@
 					<td data-bind="text: name"></td>
 					<td><input class="number" size="3" type="number" data-bind="value: init"></td>
 					<td><input class="number" size="3" type="number" data-bind="value: hp"></td>
+					<td><button class='icon-delete' title="Delete" data-bind="click: $parent.removeActor"></button></td>
 					<td><button class="icon-turn" title="End Turn" data-bind="click: $parent.endTurn, visible: hp() > 0"></button></td>
 				</tr>
 			</tbody>

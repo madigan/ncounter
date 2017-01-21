@@ -1,5 +1,5 @@
 input[type=number] {
-    width: 3rem;
+    width: 2rem;
 }
 
 .widget {
@@ -85,4 +85,7 @@ table {
 }
 .icon-play:before {
 	content: "\e00c";
+}
+.icon-help:after {
+	content: "\e065";
 }
